@@ -1,0 +1,158 @@
+<!-- contact-form.component.html -->
+<section class="contact-form-section" id="contact">
+  <div class="container">
+    <div class="form-wrapper">
+      <!-- Right Side - Form -->
+      <div class="form-container">
+        <div class="form-header">
+          <h2 class="form-title">רוצים לבדוק התאמה?</h2>
+          <p class="form-subtitle">מוזמנים לשיחת התאמה בת 20 דקות במתנה</p>
+        </div>
+
+        <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <!-- Name Field -->
+          <div class="form-group">
+            <label for="name" class="form-label">שם מלא *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name"
+              class="form-input"
+              [(ngModel)]="formData.name"
+              required
+              placeholder="הזינו את שמכם המלא"
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email" class="form-label">אימייל *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              class="form-input"
+              [(ngModel)]="formData.email"
+              required
+              email
+              placeholder="example@mail.com"
+            />
+          </div>
+
+          <!-- Phone Field -->
+          <div class="form-group">
+            <label for="phone" class="form-label">נייד *</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone"
+              class="form-input"
+              [(ngModel)]="formData.phone"
+              required
+              pattern="[0-9]{10}"
+              placeholder="05X-XXX-XXXX"
+            />
+          </div>
+
+          <!-- Marketing Consent -->
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                name="marketingConsent"
+                [(ngModel)]="formData.marketingConsent"
+                class="checkbox-input"
+              />
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">אני מסכים/ה לקבל תוכן ודיוור מנעם כהן</span>
+            </label>
+          </div>
+
+          <!-- Privacy Policy -->
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                name="privacyConsent"
+                [(ngModel)]="formData.privacyConsent"
+                class="checkbox-input"
+                required
+              />
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">
+                קראתי, הבנתי והסכמתי ל<a href="#" class="policy-link">תקנון</a> ו<a href="#" class="policy-link">מדיניות הפרטיות</a> *
+              </span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="submit-button"
+            [disabled]="!contactForm.valid || isSubmitting"
+          >
+            <span *ngIf="!isSubmitting">שלחו פנייה</span>
+            <span *ngIf="isSubmitting">שולח...</span>
+          </button>
+
+          <!-- Success Message -->
+          <div class="success-message" *ngIf="showSuccess">
+            ✓ הפנייה נשלחה בהצלחה! ניצור איתכם קשר בקרוב
+          </div>
+        </form>
+      </div>
+
+      <!-- Left Side - Contact Info -->
+      <div class="info-container">
+        <div class="info-content">
+          <h3 class="info-title">דרכי התקשרות</h3>
+          
+          <div class="info-items">
+            <a href="tel:054-848-4280" class="info-item">
+              <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="info-text">
+                <span class="info-label">טלפון</span>
+                <span class="info-value">054-848-4280</span>
+              </div>
+            </a>
+
+            <a href="mailto:naamcohen@example.com" class="info-item">
+              <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="info-text">
+                <span class="info-label">אימייל</span>
+                <span class="info-value">naamcohen@example.com</span>
+              </div>
+            </a>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="info-text">
+                <span class="info-label">שעות פעילות</span>
+                <span class="info-value">ראשון - חמישי: 9:00 - 18:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-cta">
+            <p class="info-cta-text">מתאימים לכם?</p>
+            <p class="info-cta-subtext">בואו נתחיל את המסע המרגש שלכם</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

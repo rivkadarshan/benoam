@@ -1,0 +1,80 @@
+<section class="recommendations">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2 class="section-title">מה אומרים עלינו</h2>
+      <p class="section-subtitle">
+        לקוחות מרוצים משתפים את החוויה שלהם
+      </p>
+    </div>
+
+    <!-- Recommendations Carousel -->
+    <div class="carousel-wrapper">
+      <button 
+        class="carousel-btn prev-btn" 
+        (click)="previousRecommendation()"
+        aria-label="המלצה קודמת"
+        title="המלצה קודמת">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="recommendations-container">
+        <div class="recommendation-card" *ngFor="let rec of visibleRecommendations">
+          <!-- Rating Stars -->
+          <div class="rating">
+            <svg 
+              *ngFor="let star of getStars(rec.rating)" 
+              class="star" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24" 
+              fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+
+          <!-- Recommendation Text -->
+          <p class="recommendation-text">{{ rec.text }}</p>
+
+          <!-- User Info -->
+          <div class="user-info">
+            <div class="user-avatar">
+              <div class="avatar-placeholder">
+                {{ rec.name.charAt(0) }}
+              </div>
+            </div>
+            <div class="user-details">
+              <h4 class="user-name">{{ rec.name }}</h4>
+              <p class="user-role">{{ rec.role }}</p>
+              <p class="user-company">{{ rec.company }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button 
+        class="carousel-btn next-btn" 
+        (click)="nextRecommendation()"
+        aria-label="המלצה הבאה"
+        title="המלצה הבאה">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dots Navigation -->
+    <div class="dots-navigation">
+      <button 
+        *ngFor="let rec of recommendations; let i = index"
+        class="dot"
+        [class.active]="i === currentIndex"
+        (click)="goToRecommendation(i)"
+        [attr.aria-label]="'עבור להמלצה ' + (i + 1)"
+        [attr.title]="'עבור להמלצה ' + (i + 1)">
+        •
+      </button>
+    </div>
+  </div>
+</section>

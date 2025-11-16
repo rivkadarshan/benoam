@@ -1,0 +1,56 @@
+<section class="faq-section" id="faq">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="question-mark-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
+      <h2 class="section-title">שאלות ותשובות</h2>
+      <p class="section-subtitle">מצאו תשובות לשאלות הנפוצות</p>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="faq-list">
+      <div 
+        class="faq-item" 
+        *ngFor="let faq of faqs; let i = index"
+        [class.active]="activeFaq === i">
+        <div class="faq-question" (click)="toggleFaq(i)">
+          <div class="question-content">
+            <div class="question-number">{{ i + 1 }}</div>
+            <h3 class="question-text">{{ faq.question }}</h3>
+          </div>
+          <div class="toggle-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer" [@slideDown]="activeFaq === i ? 'open' : 'closed'">
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="faq-cta">
+      <div class="cta-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <h3 class="faq-cta-title">עדיין יש שאלות?</h3>
+      <p class="faq-cta-text">אנחנו כאן כדי לעזור ולענות על כל שאלה</p>
+      <button class="cta-button">
+        הרשמה לוובינר החינמי
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
