@@ -14,6 +14,10 @@ import { RecommendationsComponent } from './componnents/recommendations/recommen
 import { QuestionsComponent } from './componnents/questions/questions.component';
 import { BonusesComponent } from './componnents/bonuses/bonuses.component';
 import { PricingComponent } from './componnents/pricing/pricing.component';
+import { NormalizationComponent } from './componnents/normalization/normalization.component';
+import { SolutionComponent } from './componnents/solution/solution.component';
+import { WebinarComponent } from './componnents/webinar/webinar.component';
+import { CtaRegistrationComponent } from './componnents/cta-registration/cta-registration.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { PricingComponent } from './componnents/pricing/pricing.component';
     RecommendationsComponent,
     QuestionsComponent,
     BonusesComponent,
-    PricingComponent
+    PricingComponent,
+    NormalizationComponent,
+    SolutionComponent,
+    WebinarComponent,
+    CtaRegistrationComponent
   ],
   imports: [
     BrowserModule,
