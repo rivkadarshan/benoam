@@ -1,0 +1,75 @@
+<section class="bonuses">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="gift-icon-wrapper">
+        <div class="gift-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 12 20 22 4 22 4 12"/>
+            <rect x="2" y="7" width="20" height="5"/>
+            <line x1="12" y1="22" x2="12" y2="7"/>
+            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+          </svg>
+        </div>
+      </div>
+      
+      <h2 class="section-title">בונוסים למשתתפים</h2>
+      <p class="section-subtitle">משתתפי הוובינר יקבלו:</p>
+    </div>
+
+    <!-- Bonuses Grid -->
+    <div class="bonuses-grid">
+      <div class="bonus-card" *ngFor="let bonus of bonuses; let i = index">
+        <div class="bonus-badge">
+          <span>בונוס {{ i + 1 }}</span>
+        </div>
+        
+        <div class="bonus-icon">
+          <!-- Video Icon -->
+          <svg *ngIf="bonus.icon === 'video'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+          
+          <!-- Clock Icon -->
+          <svg *ngIf="bonus.icon === 'clock'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          
+          <!-- File Icon -->
+          <svg *ngIf="bonus.icon === 'file'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+            <polyline points="13 2 13 9 20 9"/>
+          </svg>
+        </div>
+
+        <div class="checkmark">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+
+        <h3 class="bonus-title">{{ bonus.title }}</h3>
+        <p class="bonus-description">{{ bonus.description }}</p>
+
+        <div class="bonus-shine"></div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <div class="cta-content">
+        <h3 class="cta-title">רוצה לקבל את כל הבונוסים?</h3>
+        <p class="cta-text">הירשם עכשיו לוובינר החינמי ותקבל גישה מיידית לכל החומרים</p>
+        <button class="cta-button">
+          כן, אני רוצה את הבונוסים!
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section class="questions">
+  <div class="container">
+    <!-- Questions Grid -->
+    <div class="questions-grid">
+      <div class="question-card" *ngFor="let question of questions">
+        <div class="question-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <p class="question-text">{{ question.text }}</p>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-box">
+      <div class="megaphone-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2l-1 4h-2l-1-4H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h18zM7 8v2h2V8H7zm4 0v2h6V8h-6z"/>
+        </svg>
+      </div>
+      
+      <h2 class="cta-main-title">וובינר חד-פעמי לגברים מהמגזר החרדי והדתי:</h2>
+      
+      <h3 class="cta-webinar-title">"אוצר הזהב לתקשורת זוגית - ששת העקרונות שיביאו לך את האהבה הביתה"</h3>
+      
+      <div class="cta-badges">
+        <span class="badge">ללא עלות</span>
+        <span class="badge">שידור חי בזום</span>
+        <span class="badge">לנשואים בלבד</span>
+      </div>
+      
+      <p class="cta-description">
+        בלי טיפול זוגי, בלי "לפתוח הכול", ובלי להתחנן שיבינו אותך.
+      </p>
+      
+      <button class="cta-button">
+        הרשמה לוובינר החינמי
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
